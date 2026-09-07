@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Academia de Henry</title>
+<link rel="stylesheet" href="assets/estilos.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+
+<header class="barra">
+  <div class="marca">
+    <span class="marca-icono">📚</span>
+    <h1>Academia de Henry</h1>
+  </div>
+
+  <div class="buscador">
+    <input type="search" id="busqueda" placeholder="Buscar en tus guías…" autocomplete="off">
+  </div>
+
+  <div class="acciones">
+    <button class="btn" id="btn-subir" title="Subir una guía">Subir guía</button>
+    <button class="btn btn-icono" id="btn-temas" title="Gestionar temas">🗂️</button>
+    <button class="btn btn-icono" id="btn-ajustes" title="Ajustes y acceso de escritura">⚙️</button>
+    <button class="btn btn-icono" id="btn-tema-visual" title="Cambiar apariencia">◐</button>
+  </div>
+</header>
+
+<nav class="filtros" id="filtros"></nav>
+
+<main id="principal">
+  <div class="rejilla" id="rejilla"></div>
+  <div class="vacio" id="vacio" hidden>
+    <p class="vacio-icono">🗂️</p>
+    <h2>Todavía no hay guías</h2>
+    <p>Arrastra un archivo HTML, una carpeta o un .zip a cualquier parte de esta ventana.</p>
+    <button class="btn btn-principal" id="btn-vacio-subir">Subir mi primera guía</button>
+  </div>
+</main>
+
+<!-- Capa de arrastre -->
+<div class="soltar" id="soltar" hidden>
+  <div class="soltar-caja">
+    <p class="soltar-icono">⬇</p>
+    <p class="soltar-texto">Suelta aquí tus guías</p>
+    <p class="soltar-nota">Archivos .html, carpetas completas o .zip</p>
+  </div>
+</div>
+
+<!-- Lector -->
+<section class="lector" id="lector" hidden>
+  <header class="lector-barra">
+    <button class="btn btn-icono" id="lector-volver" title="Volver a la biblioteca">←</button>
+    <div class="lector-titulo">
+      <h2 id="lector-nombre"></h2>
+      <span class="etiqueta" id="lector-tema"></span>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="lector-notas">Nota</button>
+      <button class="btn btn-icono" id="lector-descargar" title="Descargar como HTML">⤓</button>
+      <button class="btn btn-icono btn-peligro" id="lector-borrar" title="Eliminar guía">🗑</button>
+    </div>
+  </header>
+  <div class="lector-cuerpo">
+    <iframe id="lector-marco" sandbox="allow-scripts allow-popups" title="Contenido de la guía"></iframe>
+    <aside class="notas" id="panel-notas" hidden>
+      <label for="nota-texto">Tu nota sobre esta guía</label>
+      <textarea id="nota-texto" placeholder="Lo que quieras recordar: dudas, ideas, en qué te sirvió…"></textarea>
+      <p class="notas-estado" id="nota-estado"></p>
+    </aside>
+  </div>
+</section>
+
+<!-- Diálogo genérico -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-caja" id="modal-caja"></div>
+</div>
+
+<p class="aviso" id="aviso" hidden></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
