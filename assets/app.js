@@ -259,7 +259,7 @@
         <div class="tarjeta-pie">
           <span>${fechaCorta(g.fechaSubida)}</span>
           <div class="tarjeta-tags">${(g.tags || []).slice(0, 3).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
-          ${g.nota ? '<span class="tarjeta-nota" title="Tiene nota">✎</span>' : ''}
+          ${g.nota ? `<span class="tarjeta-nota" title="Tiene nota">${SVG_LAPIZ}</span>` : ''}
         </div>`;
       tarjeta.addEventListener('click', () => abrirLector(g));
       rejilla.appendChild(tarjeta);
@@ -271,6 +271,9 @@
     const d = new Date(iso);
     return d.toLocaleDateString('es', { day: 'numeric', month: 'short', year: 'numeric' });
   }
+
+  const SVG_LAPIZ = '<svg class="icono icono-mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
+  const SVG_PAPELERA = '<svg class="icono icono-mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>';
 
   function escapeHtml(s) {
     return String(s ?? '').replace(/[&<>"']/g, c => ({
@@ -404,7 +407,7 @@
       <div class="campo">
         <label>Token (github.com → Settings → Developer settings → Fine-grained tokens)</label>
         <input id="in-token" type="password" placeholder="github_pat_…" value="${token() ? '••••••••••••' : ''}">
-        <p class="campo-ayuda">Dále permiso "Contents: Read and write" solo sobre este repositorio. Si dejas el campo con puntos, no se cambia el token guardado.</p>
+        <p class="campo-ayuda">Dale permiso "Contents: Read and write" solo sobre este repositorio. Si dejas el campo con puntos, no se cambia el token guardado.</p>
       </div>
 
       <div class="modal-pie">
@@ -455,7 +458,7 @@
           <input type="color" value="${t.color}" data-campo="color">
           <input type="text" value="${escapeHtml(t.nombre)}" data-campo="nombre">
           <span class="fila-tema-conteo">${n} guía${n === 1 ? '' : 's'}</span>
-          <button class="btn btn-icono btn-peligro" data-accion="borrar" ${n > 0 ? 'disabled title="Reasigna sus guías antes de borrarlo"' : ''}>🗑</button>
+          <button class="btn btn-icono btn-peligro" data-accion="borrar" ${n > 0 ? 'disabled title="Reasigna sus guías antes de borrarlo"' : ''}>${SVG_PAPELERA}</button>
         </div>`;
       }).join('');
 
