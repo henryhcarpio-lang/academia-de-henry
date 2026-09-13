@@ -1,6 +1,22 @@
 {
   "temas": [
-    { "id": "general", "nombre": "General", "color": "#8a8579" }
+    {
+      "id": "general",
+      "nombre": "General",
+      "color": "#8a8579"
+    }
   ],
-  "guias": []
+  "guias": [
+    {
+      "id": "g-mtzazma4uqan",
+      "titulo": "Tips para monetizar videos en YouTube",
+      "tema": "general",
+      "resumen": "💰 Tips para monetizar videos en YouTube Secretos de un experto de Shorts con 15 canales monetizados 📹 Sobre este contenido Fuente Podcast de Diego Cabrera 22 \"Experto de YouTube explica el SECRETO para crecer y MONETIZ",
+      "tags": [],
+      "ruta": "guias/general/tips-para-monetizar-videos-en-youtube.html",
+      "nota": "",
+      "fechaSubida": "2026-09-13T04:17:53.250Z",
+      "fechaUltimaLectura": null
+    }
+  ]
 }
